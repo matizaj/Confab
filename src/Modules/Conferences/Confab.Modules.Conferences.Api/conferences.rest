@@ -1,0 +1,65 @@
+@url = http://localhost:5095/conferences-module
+@hostId=abda81ea-ee27-4429-ad4b-c51c709a2a41
+@conferenceId=02a42ee8-a2aa-448d-9fe9-481e912ca83b
+
+GET {{url}}
+
+###
+POST {{url}}/host
+Content-Type: application/json
+
+{
+    "name":"host2",
+    "description":"lorem ipsum"
+}
+
+###
+GET {{url}}/host
+
+###
+GET {{url}}/host/{{hostId}}
+
+###
+PUT  {{url}}/host/{{hostId}}
+Content-Type: application/json
+
+{
+    "name":"host#2",
+    "description":"lorem ipsum2",
+    "conferencesDtos":[]
+}
+
+######################
+
+
+GET {{url}}/conference
+###
+
+POST {{url}}/conference
+Content-Type: application/json
+
+{
+    "hostId":"{{hostId}}",
+    "name":"Conferences#1",
+    "description":"lorem ipsum",
+    "location":"test 123",
+    "from":"2023-05-01",
+    "to":"2023-05-03",
+    "participantLimit":100,
+    "logoUrl":"null",
+    "hostName":"test"
+}
+
+###
+GET {{url}}/confereces
+
+###
+GET {{url}}/conference/{{conferenceId}}
+
+###
+PUT  {{url}}/conference/{{conferenceId}}
+Content-Type: application/json
+
+{
+    "name":"conf#2"
+}
