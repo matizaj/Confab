@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Confab.Modules.Conferences.Core.Repositories
 {
-    internal class HostRepository : IHostRepository
+    internal class InMemoryHostRepository : IHostRepository
     {
         private readonly List<Host> _hosts = new();
         public Task AddAsync(Host host)

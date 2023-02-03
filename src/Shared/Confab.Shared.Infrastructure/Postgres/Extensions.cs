@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Confab.Shared.Infrastructure.Postgres
 {
-    internal static class Extensions
+    public static class Extensions
     {
         public static IServiceCollection AddPostgres(this IServiceCollection services)
         {
@@ -22,6 +22,7 @@ namespace Confab.Shared.Infrastructure.Postgres
         {
             var options = services.GetOptions<PostgresOptions>("postgres");
             services.AddDbContext<T>(x=>x.UseNpgsql(options.ConnectionString));
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             return services;
         }
 

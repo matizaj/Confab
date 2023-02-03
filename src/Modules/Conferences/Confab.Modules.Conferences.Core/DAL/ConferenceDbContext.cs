@@ -16,5 +16,10 @@ namespace Confab.Modules.Conferences.Core.DAL
         public ConferenceDbContext(DbContextOptions<ConferenceDbContext> options):base(options) 
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("conferences");
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+        }
     }
 }

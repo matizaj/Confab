@@ -1,5 +1,6 @@
 @url = http://localhost:5095/conferences-module
-@hostId=abda81ea-ee27-4429-ad4b-c51c709a2a41
+
+@hostId=edb73e3a-1543-44e4-ac0c-f12c49c298d5
 @conferenceId=02a42ee8-a2aa-448d-9fe9-481e912ca83b
 
 GET {{url}}
@@ -24,10 +25,12 @@ PUT  {{url}}/host/{{hostId}}
 Content-Type: application/json
 
 {
-    "name":"host#2",
+    "name":"host#1-2",
     "description":"lorem ipsum2",
     "conferencesDtos":[]
 }
+###
+DELETE {{url}}/host/{{hostId}}
 
 ######################
 

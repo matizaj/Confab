@@ -1,6 +1,7 @@
 ﻿using Confab.Shared.Abstractions.Utility;
 using Confab.Shared.Infrastructure.Api;
 using Confab.Shared.Infrastructure.Exceptions;
+using Confab.Shared.Infrastructure.Services;
 using Confab.Shared.Infrastructure.Time;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +16,7 @@ namespace Confab.Shared.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
+            services.AddHostedService<AppInitializer>();
             services.AddErrorHandling();
             services.AddSingleton<IClock, UtcClock>();
             services.AddControllers()
@@ -37,7 +39,7 @@ namespace Confab.Shared.Infrastructure
             {
                 endpoints.MapControllers();
                 endpoints.MapGet("/", context => context.Response.WriteAsync("Confab API!"));
-            });                    
+            });                 
 
             return app;
         }

@@ -31,8 +31,7 @@ namespace Confab.Modules.Conferences.Core.Services
             }
 
             dto.Id=Guid.NewGuid();
-
-            await _conferenceRepository.AddAsync(new Conference()
+            var conf = new Conference()
             {
                 HostId = dto.HostId,
                 Id = dto.Id,
@@ -43,7 +42,8 @@ namespace Confab.Modules.Conferences.Core.Services
                 Location = dto.Location,
                 LogoUrl = dto.LogoUrl,
                 ParticipantLimit = dto.ParticipantLimit,
-            });
+            };
+            await _conferenceRepository.AddAsync(conf);
         }
 
         public async Task<IReadOnlyList<ConferencesDto>> BrowseAsync()
