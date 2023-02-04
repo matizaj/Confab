@@ -26,7 +26,13 @@ namespace Confab.Shared.Infrastructure.Services
             using var scope = _service.CreateScope();
             foreach (var dbContetType in dbContextTypes)
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService(dbContetType) as DbContext;
+                var dbContext = scope.ServiceProvider.GetService(dbContetType) as DbContext;
+
+                if (dbContext == null)
+                {
+                    continue;
+                }
+
                 try
                 {
                     await dbContext.Database.MigrateAsync(cancellationToken);
