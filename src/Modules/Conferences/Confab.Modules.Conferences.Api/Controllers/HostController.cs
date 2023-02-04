@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Confab.Modules.Conferences.Api.Controllers
 {
-    [Route($"{BasePath}/[controller]")]
+    [Route($"{ConferencesModule.BasePath}/[controller]")]
     internal class HostController:ApiBaseController
     {
         private readonly IHostService _hostService;

@@ -31,15 +31,7 @@ namespace Confab.Shared.Infrastructure
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
-
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-                endpoints.MapGet("/", context => context.Response.WriteAsync("Confab API!"));
-            });                 
+            app.UseAuthorization();                       
 
             return app;
         }

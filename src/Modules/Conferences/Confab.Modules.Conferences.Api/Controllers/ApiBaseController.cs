@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 namespace Confab.Modules.Conferences.Api.Controllers
 {
     [ApiController]
-    [Route(BasePath)]
+    [Route(ConferencesModule.BasePath)]
     internal class ApiBaseController:ControllerBase
     {
-        protected const string BasePath = "conferences-module";
-
         protected ActionResult<T> OkOrNotFound<T>(T model) 
         { 
             if(model is null) 

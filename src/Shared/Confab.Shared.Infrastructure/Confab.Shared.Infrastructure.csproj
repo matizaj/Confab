@@ -9,9 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\confab.Shared.Abstractions\Confab.Shared.Abstractions.csproj" />
   </ItemGroup>
-	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
+	
 	<ItemGroup>
 	  <PackageReference Include="Humanizer" Version="2.13.14" />
 	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1" />

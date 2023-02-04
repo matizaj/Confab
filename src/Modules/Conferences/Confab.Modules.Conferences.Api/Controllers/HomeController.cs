@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Confab.Modules.Conferences.Api.Controllers
 {
-    [Route(BasePath)]
+    [Route(ConferencesModule.BasePath)]
     internal class HomeController:ApiBaseController
     {
         [HttpGet]
