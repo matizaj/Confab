@@ -1,5 +1,5 @@
 ﻿using Confab.Shared.Abstractions.Modules;
-using Confab.Shared.Abstractions.Utility;
+using Confab.Shared.Abstractions.Time;
 using Confab.Shared.Infrastructure.Api;
 using Confab.Shared.Infrastructure.Exceptions;
 using Confab.Shared.Infrastructure.Services;
@@ -29,7 +29,7 @@ namespace Confab.Shared.Infrastructure
                     {
                         continue;
                     }
-                    if(!bool.Parse(value))
+                    if (!bool.Parse(value))
                     {
                         disabledModules.Add(key.Split(":")[0]);
                     }
@@ -40,7 +40,8 @@ namespace Confab.Shared.Infrastructure
             services.AddErrorHandling();
             services.AddSingleton<IClock, UtcClock>();
             services.AddControllers()
-                .ConfigureApplicationPartManager(mgr => {
+                .ConfigureApplicationPartManager(mgr =>
+                {
                     var removedParts = new List<ApplicationPart>();
                     foreach (var disabledModule in disabledModules)
                     {
@@ -64,7 +65,7 @@ namespace Confab.Shared.Infrastructure
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();                       
+            app.UseAuthorization();
 
             return app;
         }
@@ -76,7 +77,7 @@ namespace Confab.Shared.Infrastructure
             return configuration.GetOptions<T>(sectionName);
         }
 
-        public static T GetOptions<T>(this IConfiguration config, string sectioname) where T: new()
+        public static T GetOptions<T>(this IConfiguration config, string sectioname) where T : new()
         {
             var options = new T();
             config.GetSection(sectioname).Bind(options);

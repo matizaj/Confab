@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
-using Confab.Modules.Speakers.Core;
-using Confab.Modules.Speakers.Core.DTO;
-using Confab.Modules.Speakers.Core.Services;
+using Confab.Modules.Users.Core;
 using Confab.Shared.Abstractions.Modules;
-using Confab.Shared.Infrastructure.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Confab.Modules.Speakers.Api
+namespace Confab.Modules.Users.Api
 {
-    internal class SpeakersModule : IModule
+    internal class UsersModule : IModule
     {
-        public const string BasePath = "speakers-module";
-        public string Name { get; } = "Speakers";
+        public const string BasePath = "users-module";
+        public string Name { get; } = "Users";
         public string Path => BasePath;
 
-        public IEnumerable<string> Policies { get; } = new[] { "speakers" };
+        public IEnumerable<string> Policies { get; } = new[]
+        {
+            "users"
+        };
         IEnumerable<string>? IModule.Policies { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Register(IServiceCollection services)
@@ -25,7 +25,6 @@ namespace Confab.Modules.Speakers.Api
 
         public void Use(IApplicationBuilder app)
         {
-            
         }
     }
 }

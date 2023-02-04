@@ -44,7 +44,7 @@ namespace Confab.Bootstrapper
             });
 
             _assemblies.Clear();
-            _modules.Clear();   
+            _modules.Clear();
         }
     }
 }
