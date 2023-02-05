@@ -1,6 +1,7 @@
 ﻿using Confab.Shared.Abstractions.Modules;
 using Confab.Shared.Abstractions.Time;
 using Confab.Shared.Infrastructure.Api;
+using Confab.Shared.Infrastructure.Auth;
 using Confab.Shared.Infrastructure.Exceptions;
 using Confab.Shared.Infrastructure.Services;
 using Confab.Shared.Infrastructure.Time;
@@ -37,6 +38,7 @@ namespace Confab.Shared.Infrastructure
             }
 
             services.AddHostedService<AppInitializer>();
+            services.AddAuth(modules);
             services.AddErrorHandling();
             services.AddSingleton<IClock, UtcClock>();
             services.AddControllers()
@@ -63,7 +65,9 @@ namespace Confab.Shared.Infrastructure
         {
             app.UseErrorHandling();
 
-            app.UseHttpsRedirection();
+            app.UseAuthentication();
+
+            app.UseRouting();
 
             app.UseAuthorization();
 

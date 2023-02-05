@@ -15,9 +15,10 @@ namespace Confab.Modules.Users.Core
     {
         public static IServiceCollection AddCore(this IServiceCollection services)
             => services
+            .AddPostgres<UsersDbContext>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>()
-                .AddTransient<IIdentityService, IdentityService>()
-                .AddPostgres<UsersDbContext>();
+                .AddTransient<IIdentityService, IdentityService>();
+                
     }
 }
