@@ -41,7 +41,7 @@ namespace Confab.Shared.Infrastructure.Context
         {
             IsAuthenticated = principal.Identity?.IsAuthenticated is true;
             Id = IsAuthenticated ? Guid.Parse(principal.Identity.Name) : Guid.Empty;
-            Role = principal.Claims.Single(x => x.Type == ClaimTypes.Role).Value;
+            Role = principal.Claims.SingleOrDefault(x => x.Type == ClaimTypes.Role).Value;
             Claims = principal.Claims.GroupBy(x => x.Type).ToDictionary(x => x.Key, x => x.Select(x => x.Value.ToString()));
         }
     }

@@ -53,6 +53,7 @@ namespace Confab.Shared.Infrastructure
                 sw.CustomSchemaIds(x => x.FullName);
                 sw.SwaggerDoc("v1", new OpenApiInfo { Title = "Confab Api", Version = "v1" });
             });
+            services.AddSingleton<IContextFactory, ContextFactory>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IContext>(sp => sp.GetRequiredService<IContextFactory>().Create());
             services.AddModuleInfo(modules);
