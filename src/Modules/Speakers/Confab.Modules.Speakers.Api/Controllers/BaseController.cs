@@ -1,4 +1,5 @@
 ﻿
+using Confab.Shared.Infrastructure.Api;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Confab.Modules.Speakers.Api.Controllers

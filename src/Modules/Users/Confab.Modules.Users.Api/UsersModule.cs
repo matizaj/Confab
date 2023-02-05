@@ -16,8 +16,7 @@ namespace Confab.Modules.Users.Api
         {
             "users"
         };
-        IEnumerable<string>? IModule.Policies { get ; set; }
-
+       
         public void Register(IServiceCollection services)
         {
             services.AddCore();

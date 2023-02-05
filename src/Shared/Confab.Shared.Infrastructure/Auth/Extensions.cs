@@ -98,7 +98,7 @@ namespace Confab.Shared.Infrastructure.Auth
                            Enumerable.Empty<string>();
             services.AddAuthorization(authorization =>
             {
-                foreach (var policy in policies)
+                foreach (var policy in policies.ToList())
                 {
                     authorization.AddPolicy(policy, x => x.RequireClaim("permissions", policy));
                 }

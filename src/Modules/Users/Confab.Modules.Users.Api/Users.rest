@@ -1,8 +1,8 @@
 ﻿@url = http://localhost:5095/users-module 
-@email = user1@confab.io 
+@email = user@confab.io 
 @password = secret 
 @role = user 
-@accessToken = secret 
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NzAxODViNS00NzE3LTRiZGMtYTI4Zi1jZTMwZGRiMDNlYWUiLCJ1bmlxdWVfbmFtZSI6IjQ3MDE4NWI1LTQ3MTctNGJkYy1hMjhmLWNlMzBkZGIwM2VhZSIsImp0aSI6IjFjNTI4ZjFkLWQyZWItNDcxYy05ZWVjLWI2Mzk0ZjNmMjEwMyIsImlhdCI6IjE2NzU2MjYwNTA1NDkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJ1c2VyIiwicGVybWlzc2lvbnMiOlsiY29uZmVyZW5jZXMiLCJob3N0cyIsInNwZWFrZXJzIiwidGlja2V0cyIsInVzZXJzIl0sIm5iZiI6MTY3NTYyNjA1MCwiZXhwIjoxNjc1NjYyMDUwLCJpc3MiOiJjb25mYWIifQ.SXdj5ncgAs4rjc9VF23gU9GA 
 ### 
 GET {{url}}
 

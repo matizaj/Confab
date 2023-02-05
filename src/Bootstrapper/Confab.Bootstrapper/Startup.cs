@@ -1,5 +1,6 @@
 ﻿using Confab.Shared.Abstractions.Modules;
 using Confab.Shared.Infrastructure;
+using Confab.Shared.Infrastructure.Modules;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Reflection;
 
@@ -37,10 +38,13 @@ namespace Confab.Bootstrapper
 
             app.UseRouting();
 
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
                 endpoints.MapGet("/", context => context.Response.WriteAsync("Confab API!"));
+                endpoints.MapModuleInfo();
             });
 
             _assemblies.Clear();

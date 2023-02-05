@@ -1,8 +1,11 @@
-﻿using Confab.Shared.Abstractions.Modules;
+﻿using Confab.Shared.Abstractions.Contexts;
+using Confab.Shared.Abstractions.Modules;
 using Confab.Shared.Abstractions.Time;
 using Confab.Shared.Infrastructure.Api;
 using Confab.Shared.Infrastructure.Auth;
+using Confab.Shared.Infrastructure.Context;
 using Confab.Shared.Infrastructure.Exceptions;
+using Confab.Shared.Infrastructure.Modules;
 using Confab.Shared.Infrastructure.Services;
 using Confab.Shared.Infrastructure.Time;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -18,6 +22,7 @@ namespace Confab.Shared.Infrastructure
 {
     internal static class Extensions
     {
+        private const string CorsPolicy = "cors";
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IList<Assembly> assemblies, IList<IModule> modules)
         {
             var disabledModules = new List<string>();
@@ -36,7 +41,21 @@ namespace Confab.Shared.Infrastructure
                     }
                 }
             }
-
+            services.AddCors(cors =>
+            {
+                cors.AddPolicy(CorsPolicy, x =>
+                {
+                    x.WithOrigins("*").WithMethods("POST", "PUT", "DELETE").WithHeaders("Content-Type", "Authorization");
+                });
+            });
+            services.AddSwaggerGen(sw =>
+            {
+                sw.CustomSchemaIds(x => x.FullName);
+                sw.SwaggerDoc("v1", new OpenApiInfo { Title = "Confab Api", Version = "v1" });
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IContext>(sp => sp.GetRequiredService<IContextFactory>().Create());
+            services.AddModuleInfo(modules);
             services.AddHostedService<AppInitializer>();
             services.AddAuth(modules);
             services.AddErrorHandling();
@@ -63,7 +82,18 @@ namespace Confab.Shared.Infrastructure
 
         public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
         {
+            app.UseCors(CorsPolicy);
+
             app.UseErrorHandling();
+
+            app.UseSwagger();
+
+            app.UseReDoc(x =>
+            {
+                x.RoutePrefix = "docs";
+                x.SpecUrl("/swagger/v1/swagger.json");
+                x.DocumentTitle = "Confab Api";
+            });
 
             app.UseAuthentication();
 

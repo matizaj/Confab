@@ -7,6 +7,7 @@ GET {{url}}
 
 ###
 POST {{url}}/host
+Authorization: Bearer 
 Content-Type: application/json
 
 {

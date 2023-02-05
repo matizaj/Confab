@@ -15,7 +15,7 @@ namespace Confab.Modules.Conferences.Api
         public const string BasePath = "conferences-module";
         public string Name { get; } = "Conferences";
         public string Path { get; } = BasePath;
-        public IEnumerable<string>? Policies { get ; set ; }
+        public IEnumerable<string>? Policies { get; } = new[] { "conferences", "hosts" };
 
         public void Register(IServiceCollection services)
         {

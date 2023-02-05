@@ -12,7 +12,7 @@ namespace Confab.Shared.Abstractions.Modules
     {
         public string Name { get; }
         public string Path { get;  }
-        IEnumerable<string>? Policies { get; set; }
+        IEnumerable<string> Policies => null;
 
         void Register(IServiceCollection services);
         void Use(IApplicationBuilder app);
