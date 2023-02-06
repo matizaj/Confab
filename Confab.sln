@@ -27,15 +27,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confab.Modules.Conferences.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Speakers", "Speakers", "{27CB9543-834D-4A6A-B948-03F39AF738C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Speakers.Api", "src\Modules\Speakers\Confab.Modules.Speakers.Api\Confab.Modules.Speakers.Api.csproj", "{2CE20B3A-A0E3-4141-848F-6EFA3BA8F482}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confab.Modules.Speakers.Api", "src\Modules\Speakers\Confab.Modules.Speakers.Api\Confab.Modules.Speakers.Api.csproj", "{2CE20B3A-A0E3-4141-848F-6EFA3BA8F482}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Speakers.Core", "src\Modules\Speakers\Confab.Modules.Speakers.Core\Confab.Modules.Speakers.Core.csproj", "{9761E91E-4138-4AC7-AF23-548D20BBC308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confab.Modules.Speakers.Core", "src\Modules\Speakers\Confab.Modules.Speakers.Core\Confab.Modules.Speakers.Core.csproj", "{9761E91E-4138-4AC7-AF23-548D20BBC308}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{ACE4292D-0D82-4D37-85C8-0B2CEF7001C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Users.Core", "src\Modules\Users\Confab.Modules.Users.Core\Confab.Modules.Users.Core.csproj", "{B0BB7879-9183-470B-9972-4B662EC59B9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confab.Modules.Users.Core", "src\Modules\Users\Confab.Modules.Users.Core\Confab.Modules.Users.Core.csproj", "{B0BB7879-9183-470B-9972-4B662EC59B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Users.Api", "src\Modules\Users\Confab.Modules.Users.Api\Confab.Modules.Users.Api.csproj", "{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confab.Modules.Users.Api", "src\Modules\Users\Confab.Modules.Users.Api\Confab.Modules.Users.Api.csproj", "{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tickets", "Tickets", "{AE04E995-1675-46A9-A292-1DD322DCA659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Tickets.Core", "src\Modules\Tickets\Confab.Modules.Tickets.Core\Confab.Modules.Tickets.Core.csproj", "{BD6DAB57-CEE7-4E26-AD89-211125F8E35F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confab.Modules.Tickets.Api", "src\Modules\Tickets\Confab.Modules.Tickets.Api\Confab.Modules.Tickets.Api.csproj", "{D517F4E0-2D67-4063-8580-164D30859C8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +85,14 @@ Global
 		{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD6DAB57-CEE7-4E26-AD89-211125F8E35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD6DAB57-CEE7-4E26-AD89-211125F8E35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD6DAB57-CEE7-4E26-AD89-211125F8E35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD6DAB57-CEE7-4E26-AD89-211125F8E35F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D517F4E0-2D67-4063-8580-164D30859C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D517F4E0-2D67-4063-8580-164D30859C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D517F4E0-2D67-4063-8580-164D30859C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D517F4E0-2D67-4063-8580-164D30859C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +113,9 @@ Global
 		{ACE4292D-0D82-4D37-85C8-0B2CEF7001C8} = {81B19567-A6D2-496A-9343-8CD4BAD3099B}
 		{B0BB7879-9183-470B-9972-4B662EC59B9E} = {ACE4292D-0D82-4D37-85C8-0B2CEF7001C8}
 		{E24EC92C-3386-418B-A6E5-F0B8BFE06AE8} = {ACE4292D-0D82-4D37-85C8-0B2CEF7001C8}
+		{AE04E995-1675-46A9-A292-1DD322DCA659} = {81B19567-A6D2-496A-9343-8CD4BAD3099B}
+		{BD6DAB57-CEE7-4E26-AD89-211125F8E35F} = {AE04E995-1675-46A9-A292-1DD322DCA659}
+		{D517F4E0-2D67-4063-8580-164D30859C8F} = {AE04E995-1675-46A9-A292-1DD322DCA659}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74F362F-BABD-49E5-90EA-995FC28B2330}
